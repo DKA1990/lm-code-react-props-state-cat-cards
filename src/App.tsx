@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Navbar from './components/navbar';
 import Header from './components/header';
@@ -9,16 +10,22 @@ import catData from './data/cat-data';
 import Dog from './data/dog';
 import dogData from './data/dog-data';
 import DogCard from './components/dog_card';
+import InputForm from './components/input_form';
 
 function App(): JSX.Element {
 
 	// JavaScript/TypeScript code can be inserted here!
-	//const [ cats, setCats ] = useState<Array<Cat>>(catData);
-	const [ cats ] = useState<Array<Cat>>(catData);
+	const [ cats, setCats ] = useState<Array<Cat>>(catData);
 	const [ dogs ] = useState<Array<Dog>>(dogData);
 
 	const catCount = cats.length;
 	const dogCount = dogs.length;
+
+	const updateCats = (nameInput: string, speciesInput: string, foodInput: string, birthInput: number) => {
+		const newCat = {name: nameInput, id: uuidv4(), species: speciesInput, favFoods: [foodInput], birthYear: birthInput};
+		setCats(cats => [...cats, newCat]);
+		console.log(cats);
+	}
 
 	return (
 		<>
@@ -50,6 +57,15 @@ function App(): JSX.Element {
 							dogIndex={index}
 						/>
 					))}
+				</div>
+				<div className="input-form">
+					<InputForm
+						name=''
+						species=''
+						favFood=''
+						birthYear={0}
+						updateState={ updateCats }
+					/>					
 				</div>
 			</main>
 
