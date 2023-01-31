@@ -124,6 +124,7 @@ const CatCard : React.FC<CatCardProps> = ({ name, species, favFoods, birthYear, 
 		'CatCard receiving props from App?! Come in App?! 😸 Props received are: ',
 		props
 	);*/
+	const favFoodsStr = favFoods.toString();
 
     return (
         <div className="card">
@@ -138,7 +139,7 @@ const CatCard : React.FC<CatCardProps> = ({ name, species, favFoods, birthYear, 
                     attributionUrl={images[catIndex].attributionUrl} 
             />}
             <p className="card__text">Species: {species}</p>
-            <p className="card__text">Favourite Food(s): {favFoods}</p>
+            <p className="card__text">Favourite Food(s): {favFoodsStr}</p>
             <p className="card__text">Birth Year: {birthYear}</p>
         </div>
     )

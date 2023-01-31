@@ -1,6 +1,6 @@
 import Dog from './dog';
 
-const dogs: Array<Dog> = [
+const dogData: Array<Dog> = [
 	{
 		name: 'Floofus',
 		species: 'Puppy',
@@ -20,3 +20,5 @@ const dogs: Array<Dog> = [
 		birthYear: 2015,
 	},
 ];
+
+export default dogData;
